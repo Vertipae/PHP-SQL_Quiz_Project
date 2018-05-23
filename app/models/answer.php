@@ -61,7 +61,7 @@ class Answer extends BaseModel {
 
 	public static function quizHasAnswers($account_id, $quiz_id) {
 		// SQL query that checks if quiz already answered by user
-		$query = DB::connection()->prepare('SELECT * FROM answer LEFT JOIN question ON question_id = answer.question_id LEFT JOIN quiz ON quiz.id = question.quiz_id WHERE answer.account_id = :account_id AND quiz.id = :quiz_id');
+		$query = DB::connection()->prepare('SELECT * FROM answer LEFT JOIN question ON question.id = answer.question_id LEFT JOIN quiz ON quiz.id = question.quiz_id WHERE answer.account_id = :account_id AND quiz.id = :quiz_id');
 		$query->execute(array('account_id' => $account_id, 'quiz_id' => $quiz_id));
 		$rows = $query->fetchAll();
 		if (count($rows) > 0) {

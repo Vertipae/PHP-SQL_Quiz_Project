@@ -5,7 +5,7 @@
 	
 <h1>{{quiz.name}}</h1>
 <br>
-{% if points %}
+{% if points is not null %}
 <h2>Your points from this quiz: {{points}}/10</h2>
 <br>
 <br>
