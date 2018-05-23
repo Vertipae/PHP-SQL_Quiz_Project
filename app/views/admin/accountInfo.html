@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="infolist">
+	
+	<p>{{ account.firstName }} {{ account.lastName }} ({{ account.studentNumber }})</p>
+
+	<table class="table table-sm table-hover">
+		<tbody>
+			<tr style="font-weight: bold;" class="table-light">
+				<td>
+					Quiz name
+				</td>
+				<td>
+					Points
+				</td>
+				<td style="text-align: right;">
+					<form action="{{ base_url }}/index.php/admin/{{account.id}}" method="POST">
+						<input type="submit" value="Reset all" class="btn btn-primary">
+					</form>
+				</td>
+			</tr>
+			{% for quiz in quizzes %}
+			
+			<tr class="table-primary">
+
+				<td>
+					<a href="{{app.request.getBaseUrl()}}/index.php/admin/{{account.id}}/{{quiz.id}}">
+						{{quiz.name}}
+					</a>
+				</td>
+				{% if quiz.points %}
+				<td>{{quiz.points}}</td>
+				{% else %}
+				<td>Not completed</td>
+				{% endif %}
+				<td style="text-align: right;">
+					<form action="{{app.request.getBaseUrl()}}/index.php/admin/{{account.id}}/{{quiz.id}}" method="POST">
+						<input type="submit" value="Reset"  class="btn btn-primary" style="width:41%;">
+					</form>
+				</td>
+		</tr>
+
+		{% endfor %}
+	</tbody>
+</table>
+</div>
+{% endblock %}

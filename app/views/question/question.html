@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="questionlist">
+<h1>{{question.description}}</h1>
+<br>
+
+<form method="POST" action="{{ base_url }}/index.php/quiz/{{quiz.id}}/{{question.id}}">
+	<button type="submit" class="btn btn-primary" name="answer" value="1">{{ options[0].description }}</button>
+	<button type="submit" class="btn btn-secondary" name="answer" value="2">{{ options[1].description }}</button>
+	<button type="submit" class="btn btn-success" name="answer" value="3">{{ options[2].description }}</button>
+	<button type="submit" class="btn btn-danger" name="answer" value="4">{{ options[3].description }}</button>
+</form>
+</div>
+
+
+
+
+
+{% endblock %}

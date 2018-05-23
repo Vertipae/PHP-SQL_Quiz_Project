@@ -1,0 +1,39 @@
+
+{% extends "base.html" %}
+{% block content %}
+<!-- Add this code to base.html block content -->
+
+{% if message %}
+<div class="alert alert-success">
+	{{message}}
+</div>
+{% endif %}
+{% if error %}
+<div class="alert alert-danger">
+	<label>{{error}}</label>
+</div>
+{% endif %}
+<div class="login">
+	<div class="row">
+
+		<div class="col-md-8">
+			<h1>Login</h1>
+			<form name="login-form" action="{{ base_url }}/index.php/login" method="post" id="login-form">
+				<div class="form-group">
+					<label>Student number</label>
+					<input type="text" class="form-control" name="studentNumber" placeholder="Student Number" value="{{studentNumber}}" required/>
+				</div>
+				<div class="form-group">
+					<label>Password</label>
+					<input type="password" class="form-control" name="password" placeholder="Password" required/>
+				</div>
+				<button type="submit" class="btn btn-primary" name="submit" value="Submit" id="submit_form">Submit</button>
+			</form>
+
+			<div class="dropdown-divider"></div>
+			<a href="{{ base_url }}/index.php/register">New around here and you want to do some insane quizzes? Sign up!</a>
+		</div>
+	</div>
+</div>
+</div>
+{% endblock %}

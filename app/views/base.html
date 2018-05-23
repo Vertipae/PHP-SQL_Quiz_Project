@@ -1,0 +1,70 @@
+	<!-- This is base for all HTML files so that every HTML file is added to the body of this file -->
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>
+			{% block title %}
+			PHP Quizzonator
+			{% endblock %}
+		</title>
+		{% block head %}
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+		<link rel="stylesheet" href="{{ base_url }}/app/views/css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+		{% endblock %}
+	</head>
+	<body>
+		{% if user_logged_in %}
+		<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fffff2; font-weight: bold;">
+			<a class="navbar-brand text-success" href="{{ base_url }}/index.php/quizzes">PHP Quizzonator</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link text-success" href="{{ base_url }}/index.php/quizzes">Quizzes<span class="sr-only">(current)</span></a>
+					</li>
+					{% if user_logged_in.admin %}
+					<li class="nav-item active">
+						<a class="nav-link text-success" href="{{ base_url }}/index.php/admin">Admin<span class="sr-only">(current)</span></a>
+					</li>
+					{% endif %}
+				</ul>
+				<li class="nav-link text-secondary">
+					{{ user_logged_in.firstName }} {{ user_logged_in.lastName }} ({{ user_logged_in.studentNumber }})
+				</li>
+				<form class="form-inline my-2 my-lg-0" action="{{ base_url }}/index.php/logout" method="POST">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+				</form>
+			</div>
+		</nav>
+
+		{% else %}
+		<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fffff2;">
+			<a class="navbar-brand text-success" href="{{ base_url }}/index.php">PHP Quizzonator</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link text-success" href="{{ base_url }}/index.php/quizzes">Quizzes<span class="sr-only">(current)</span></a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		{% endif %}
+		<div id="main-container">
+			<!-- Dynaaminen sisältö tulee tähän -->
+			{% block content %}
+			{% endblock %}
+		</div>
+		{% block body %}
+		<footer style="position: fixed; bottom:0; width: 100%; text-align: center; font-size: 13px;">@Sallamaarit Jaako R0315 Web App Dev. PHP/SQL</footer>
+		{% endblock %}
+	</body>
+	</html>

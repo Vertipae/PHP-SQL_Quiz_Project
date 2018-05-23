@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<div class="adminlist">
+<div class="list-group">
+	{% for account in accounts %}
+	 <a href="{{ base_url }}/index.php/admin/{{account.id}}" class="list-group-item list-group-item-action">{{account.firstName}} {{account.lastName}} ({{account.studentNumber}})</a>
+	{% endfor %}
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="answeredlist">
+	
+<h1>{{quiz.name}}</h1>
+<br>
+{% if points %}
+<h2>Your points from this quiz: {{points}}/10</h2>
+<br>
+<br>
+{% if points < 5 %}
+<a href="{{ base_url }}/index.php/quiz/{{quiz.id}}/{{firstQuestion.id}}/redo">
+	<button type="button" class="btn btn-primary">Redo Quiz</button>
+</a>
+{% endif %}
+{% else %}
+<a href="{{ base_url }}/index.php/quiz/{{quiz.id}}/{{firstQuestion.id}}">
+	<button type="button" class="btn btn-primary">Start Quiz</button>
+</a>
+{% endif %}
+</div>
+
+{% endblock %}

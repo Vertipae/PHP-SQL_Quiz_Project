@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br>
+<div class="quizlist">
+	<a href="{{ base_url }}/index.php/quiz/{{quizzes[0].id}}">
+		<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">{{quizzes[0].name}}</h5>
+				<p class="card-text">So, you think you know cats, huh?</p>
+			</div>
+		</div>
+	</a>
+	<a href="{{ base_url }}/index.php/quiz/{{quizzes[1].id}}">
+		<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">{{quizzes[1].name}}</h5>
+				<p class="card-text">Faktoja Suomen kauneimmasta kaupungista!</p>
+			</div>
+		</div>
+	</a>
+	<a href="{{ base_url }}/index.php/quiz/{{quizzes[2].id}}">
+		<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">{{quizzes[2].name}}</h5>
+				<p class="card-text">Tiedätkö mitä tarkoittaa?</p>
+			</div>
+		</div>
+	</a>
+	<a href="{{ base_url }}/index.php/quiz/{{quizzes[3].id}}">
+		<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">{{quizzes[3].name}}</h5>
+				<p class="card-text">Have you heard of these weird laws?</p>
+			</div>
+		</div>
+	</a>
+	<a href="{{ base_url }}/index.php/quiz/{{quizzes[4].id}}">
+		<div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">{{quizzes[4].name}}</h5>
+				<p class="card-text">Ooooooooh, you're my bestfriend. </p>
+			</div>
+		</div>
+	</a>
+</div>
+{% endblock %}

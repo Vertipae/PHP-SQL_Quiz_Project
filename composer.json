@@ -1,0 +1,14 @@
+{
+	"autoload": {
+		"classmap": [
+		"config",
+		"base",
+		"app/controllers",
+		"app/models"
+	]
+	},
+	"require": {
+		"slim/slim": "2.*",
+		"twig/twig": "~1.5"
+	}
+}

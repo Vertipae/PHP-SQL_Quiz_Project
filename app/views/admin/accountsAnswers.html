@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="infolist">
+
+	<p>{{ account.firstName }} {{ account.lastName }} ({{ account.studentNumber }}) answers in {{quiz.name}}</p>
+	{% if answers[0].question is not null %}
+	<table class="table table-sm table-hover">
+		<tbody>
+			<tr style="font-weight: bold;" class="table-light">
+				<td>
+					Question
+				</td>
+				<td>
+					Answer
+				</td>
+				<td>
+					Is correct
+				</td>
+			</tr>
+			{% for answer in answers %}
+			<tr class="table-primary">
+				<td>{{ answer.question }}</td>
+				<td>{{ answer.optionText }}</td>
+				{% if answer.correct %}
+				<td style="color:green;">Correct!</td>
+				{% else %}
+				<td style="color:red;">Incorrect!</td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	{% else %}
+	<h1>Quiz not answered yet!</h1>
+	{% endif %}
+</div>
+{% endblock %}
