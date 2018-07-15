@@ -8,3 +8,10 @@
 3. `php composer.phar install`
 4. Run with XAMPP
 
+Pictures off the app
+
+![](https://raw.githubusercontent.com/Vertipae/PHP-SQL_Quiz_Project/master/img/loginPage.PNG)
+![](https://raw.githubusercontent.com/Vertipae/PHP-SQL_Quiz_Project/master/img/QuizzesPage.PNG)
+![](https://raw.githubusercontent.com/Vertipae/PHP-SQL_Quiz_Project/master/img/questionPage.PNG)
+![](https://raw.githubusercontent.com/Vertipae/PHP-SQL_Quiz_Project/master/img/UserPage.PNG)
+![](https://raw.githubusercontent.com/Vertipae/PHP-SQL_Quiz_Project/master/img/answersPage.PNG)
